@@ -9,50 +9,58 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
-
     color: #666;
 }
 a {
     color: #666;
-}
-a:hover {
     text-decoration: none;
 }
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+
 h2 {
     text-align: center;
     color: #000;
     font-size: 32px;
     font-weight: normal;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
-.topDeals_inner_row, .hotels_inner_row, .inner_row, .hotels-container, h2, ul, .foot_inner, .foot_apps, .foot_media, .foot_channel, .mail-subscribe, .mail-sub, .app-download, .ctrip-services {
-    /*    border: 1px solid red;*/
+
+.flex-control-nav {
+/*    display: none;*/
 }
 .hotels_inner_row, .topDeals_inner_row {    
     display: block;
     margin: 0px auto;
 }
 .colm {    
-    /*    border: 1px solid #ccdef0;*/
     margin: 20px 6px 0px 6px;    
     display: inline-block;
     border-radius: 5px;
 }
+
 .top_deal_img {
     height: 230px;
     border-radius: 5px;
 }
 .img-caption {
     border: 1px solid #ccdef0;
-    border-top: 0 none;
-    /*    padding: 12px 20px 12px 20px;*/
+    border-top: 0 none;    
     max-width: 100;
     overflow: hidden;
 }
+
+.slides .colm .img-caption {
+    padding: 12px 20px 12px 20px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 685px){    
     .hotels_inner_row, .topDeals_inner_row { width: 345px; }
-    .colm { width: 330px !important; }    
+    .colm { width: 330px !important; }
+    .latest_booking { width: 328px !important; }
     .top_deal_img  { width: 328px; }
     .mail-sub .input {
         display: inline-block;
@@ -64,6 +72,7 @@ h2 {
 @media only screen and (min-width: 686px) and (max-width: 854px) {
     .hotels_inner_row, .topDeals_inner_row  { width: 695px; }
     .colm { width: 330px !important; }
+    .latest_booking { width: 328px !important; }
     .top_deal_img  { width: 328px; }
     .mail-label, .slogn {width: 100%; float:left;}
     .app-download {margin-top: 15px;}
@@ -72,6 +81,7 @@ h2 {
 @media only screen and (min-width: 855px) and (max-width: 1220px) {
     .hotels_inner_row, .topDeals_inner_row  { width: 795px; }
     .colm { width: 380px !important; }
+    .latest_booking { width: 378px !important; }
     .top_deal_img  { width: 378px; }    
     .mail-label. slogn {width: 35%; float:left}
     .mail-sub, .app-download { float: left;}
@@ -86,6 +96,7 @@ h2 {
 @media only screen and (min-width: 1221px) {
     .hotels_inner_row, .topDeals_inner_row, .mail-subscribe  { width: 1192px; }
     .colm { width: 380px !important; }
+    .latest_booking { width: 378px !important; }
     .top_deal_img  { width: 378px; }
     .mail-label, .slogn {width: 35%; float:left;}
     .mail-sub, .app-download { float: left;}
@@ -133,7 +144,6 @@ h2 {
 }
 
 .slides .colm {
-    /*    border: 1px solid #ccdef0;*/
     margin: 20px 6px 0px 6px !important;
     display: inline-block;
     border-radius: 5px;
@@ -149,12 +159,11 @@ h2 {
 .slides a:hover {
     border: 1px solid #039BE5;
     text-decoration: none;
+    box-shadow: 1px 5px #AAA;
 }
 
 
-
-
-
+/*=====SUBSCRIBE SECTION===== */
 
 .mail-subscribe {
     margin: 40px auto 0px auto;
@@ -163,12 +172,9 @@ h2 {
     overflow: hidden; 
 }
 .mail-sub {
-    /*    width: 100%;*/
-    /*    float: left;*/
     box-sizing: border-box;
     padding-left: 20px;
     display: inline-block;
-    /*    border: 1px solid green;*/
 }
 .mail-label {;
     box-sizing: border-box;
@@ -192,12 +198,8 @@ h2 {
     margin-left: -5px;
     background-color: #039BE5;
     border: 0 none;
-    /*    background: #27e;*/
     color: #fff;
 }
-
-
-
 
 
 .slogn {
@@ -220,16 +222,13 @@ h2 {
 
 
 
-
-
-/*            HOTELS CONTAINER                  */
-.hotels-container {
-    /*    border: 1px solid blue;*/
+/* ========  HOTELS CONTAINER ========      */
+.hotels-container { 
     width:100%;
 }
 .hotel-locations {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: -10px;
 }
 .hotel-locations li {
     list-style-type: none;
@@ -243,18 +242,32 @@ h2 {
 .hotel-locations a {
     color: #666;
 }
-.hotel-locations a:hover, .flights-locations a:hover {
+
+.hotel-locations .active, .flights-locations .active {
     color: white;
     cursor: pointer;
     text-decoration: none;
     font-size: 16px;
     display: inline-block;
     line-height: 32px;
-    /*    padding: 0 16px;*/
     border-radius: 4px;
     background-color: #039BE5;
+    padding: 0px 10px;
 }
 
+.hotel-locations a:hover, .flights-locations a:hover {
+    color: #039BE5;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 32px;
+    border-radius: 4px;
+}
+.hotel-locations .active:hover, .flights-locations .active:hover {
+    color: white;
+    cursor: default;
+}
 .hotels-container .img-caption h3 {
     text-align: left;
 }
@@ -269,8 +282,31 @@ h2 {
 .hotels_inner_row a {
     display: inline-block;
     border: 1px solid #ccdef0;
-
+    position: relative;
 }
+
+.latest_booking {
+    position: absolute;
+    bottom: 73px;
+    width: 379px;
+    color: #fff;
+    padding: 6px 20px;
+    font-size: 12px;
+    background-color: rgba(0,0,0,.5);    
+}
+
+.latest_booking span:nth-of-type(1) {float: left;}
+.latest_booking span:nth-of-type(2) {
+    float: right;
+    margin: 0px;
+    text-align: center;
+    display: block;
+    font-size: 28px;
+    line-height: 1;
+    position: relative;
+    top: -3px;
+}
+
 
 .hotels_inner_row a:hover {
     text-decoration: none;
@@ -278,7 +314,7 @@ h2 {
 }
 
 
-/*            FLIGHTS CONTAINER                  */
+/*  ==== FLIGHTS CONTAINER ===== */
 .flights-container {
     margin-top: 40px;
 }
@@ -301,7 +337,6 @@ h2 {
     margin: 0px auto 15px auto;        
 }
 .fcolm {
-    /*    border: 1px dotted black;*/
     width: 280px;
     height: 126px;
     display: inline-block;
@@ -309,7 +344,6 @@ h2 {
 }
 .fcolm a {
     width: 280px;
-    /*        color: #333;*/
     display: block;
     height: 126px;
     border: 1px solid #e5e5e5;
@@ -342,6 +376,18 @@ h2 {
     line-height: 1.2;
     color: #000;
 }
+.fcolm .arrow_container {
+    width:13px !important;
+    display: inline-block;
+    line-height: 0px;
+    color: #f60;
+}
+.fcolm .arrow_container .fa {
+    line-height: 4px;
+    font-weight: lighter;
+    font-size: 10px;
+}
+
 .fcolm .date {
     font-size: 12px;
     margin-top: 5px;
@@ -366,7 +412,6 @@ h2 {
 }
 .inner_row p, .hotels_inner_row p {
     color: red;
-    /*    float: right;*/
     margin-right: 16px;
     text-align: right;
     color: #828282;
@@ -410,8 +455,6 @@ h2 {
 
 
 
-
-
 /*FOOTER*/
 .footer {
     font-size: 12px;
@@ -422,6 +465,9 @@ h2 {
 .footer h3 {
     font-size: 12px;
     font-weight: bold;
+}
+.foot_links a:hover {
+    text-decoration: underline;
 }
 @media only screen and (max-width: 685px){    
     .footer { display: none;  }
@@ -451,7 +497,6 @@ h2 {
 /*FOOTER CHANNEL*/
 .foot_channel {
     text-align: center;
-    /*    background: blue;*/
     overflow: hidden;
 }
 .foot_apps, .foot_media {
@@ -483,7 +528,7 @@ h2 {
     height: 86px;
     display: inline-block;
     vertical-align: middle;
-    background: url(barcode.png) no-repeat;
+    background: url(../images/barcode.png) no-repeat;
 }
 @media only screen and (max-width: 495px){
     .barcode {margin-top:10px;}    
@@ -491,16 +536,19 @@ h2 {
 
 .foot_apps a i {    
     display: block;
-    background: url(apps.jpg) no-repeat;
+    background: url(../images/apps.jpg) no-repeat;
 }
 
 .foot_media .icon {
-    background: url(icons.png) no-repeat 1024px 1024px;
+    background: url(../images/icons.png) no-repeat 1024px 1024px;
     display: inline-block;
     font-size: 0;
     vertical-align: middle;
     width: 45px;
     height: 45px;
+}
+.foot_media .icon:hover {
+    margin-top: -5px;
 }
 .foot_media a {
     margin: 0 10px;
@@ -527,7 +575,6 @@ h2 {
         display: inline-block;
         float: left;
     }
-    /*    .foot_media {width: 50%;}*/
 }
 
 
@@ -548,7 +595,6 @@ h2 {
     }
     .container {
         display:block !important;
-        /*        width: 1190px !important;*/
         width: 100%;
         padding-right: 10px;
         padding-left: 0px;
@@ -586,7 +632,6 @@ h2 {
     font-size: 14px;
     float: left;
     width: 195px;
-    /*    border: 1px dotted grey;   */
 }
 
 .countries a {
@@ -604,7 +649,7 @@ h2 {
     height: 20px;    
 }
 .icon-flag {
-    background: url(icons.png) no-repeat 1024px 1024px;
+    background: url(../images/icons.png) no-repeat 1024px 1024px;
     margin-right:5px;
 }
 .icon-en {    
@@ -649,38 +694,10 @@ h2 {
 
 .countries .tggl {
     margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
 }
 
-
-/*
-@media only screen and (max-width: 685px) {
-
-    .countries ul {
-        background: green;
-        border: 2px solid red;        
-        display:none;
-    }
-}
-*/
-
-
-/*
-@media only screen and (min-width: 686px) {
-    .demo, .hide_me, .ctrip-services {
-        display: block;
-        overflow:hidden;
-    }
-}
-*/
-
-
-/*
-.dsplay {
-    background: green;
-    border: 2px solid red;        
-    display:none;
-}
-*/
 
 /*====== COPYRIGHT SECTION =====*/
 .copyright_container {
